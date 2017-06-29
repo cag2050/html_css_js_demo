@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标手势</title>
+    <style>
+        .container {
+            border: 1px solid gray;
+            width: 200px;
+            height: 30px;
+            padding-left: 10px;
+            line-height: 30px;
+            margin-top: 10px;
+        }
+        .move {
+            cursor: move;
+        }
+        .pointer {
+            cursor: pointer;
+        }
+        .grab {
+            cursor: -webkit-grab;
+        }
+        .grabbing {
+            cursor: -webkit-grabbing;
+        }
+    </style>
+</head>
+<body>
+<div class="container move">cursor: move</div>
+<div class="container pointer">cursor: pointer</div>
+<div class="container grab">cursor: -webkit-grab</div>
+<div class="container grabbing">cursor: -webkit-grabbing</div>
+<div class="container pointer">cursor: pointer</div>
+<div class="container pointer">cursor: pointer</div>
+</body>
+</html>
