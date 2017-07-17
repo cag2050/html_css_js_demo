@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #canvas {
+            position: absolute;
+        }
+        .score {
+            width: 180px;
+            top: 57px;
+            position: relative;
+            text-align: center;
+            height: 60px;
+            font-size: 48px;
+            line-height: 1.25;
+            letter-spacing: -1px;
+            color: #ffd600;
+        }
+        .evaluate {
+            width: 180px;
+            top: 53px;
+            position: relative;
+            text-align: center;
+            height: 28px;
+            font-size: 16px;
+            line-height: 1.75;
+            color: #23232b;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="180" height="180"></canvas>
+<div class="score">70</div>
+<div class="evaluate">信用一般</div>
+<script>
+    var outCircle = {
+        radius: 85,    // 圆环半径
+        lineWidth: 5,  // 圆环边的宽度
+        strokeStyle: '#f3f3f3', //边的颜色
+        fillStyle: '#ffd600',  //填充色
+        lineCap: 'round',
+        percent: 70,
+        startAngle: 0.75,
+        endAngle: 0.25
+    }
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    // 画外层圆环
+    ctx.beginPath();
+    ctx.arc(90, 90, outCircle.radius, outCircle.startAngle * Math.PI, outCircle.endAngle * Math.PI, false);
+//    ctx.arc(90, 90, outCircle.radius, outCircle.startAngle * Math.PI, outCircle.endAngle * Math.PI, true);
+    ctx.lineWidth = outCircle.lineWidth;
+    ctx.strokeStyle = outCircle.strokeStyle;
+    ctx.lineCap = outCircle.lineCap;
+    ctx.stroke();  // 这里用stroke画一个空心圆，想填充颜色的童鞋可以用fill方法
+    // 画内层圆环
+    ctx.beginPath();
+    var anglePer = 2 - outCircle.startAngle + outCircle.endAngle / (100 / outCircle.percent);
+    console.log( 2 - outCircle.startAngle + outCircle.endAngle)
+    console.log(anglePer)
+    var all = 2 - outCircle.startAngle + outCircle.endAngle
+    var angle = all * outCircle.percent / 100
+    console.log('angle =')
+    var end = 0
+    if(outCircle.startAngle + angle >=2) {
+        end = outCircle.startAngle + angle -2
+    } else {
+        end = outCircle.startAngle + angle
+    }
+    console.log(angle)
+    ctx.arc(90, 90, outCircle.radius, outCircle.startAngle * Math.PI, end * Math.PI, false); //这里的圆心坐标要和cirle的保持一致
+    ctx.lineWidth = outCircle.lineWidth;
+    ctx.strokeStyle = outCircle.fillStyle;
+    ctx.lineCap = outCircle.lineCap;
+    ctx.stroke();
+    ctx.closePath();
+</script>
+</body>
+</html>
