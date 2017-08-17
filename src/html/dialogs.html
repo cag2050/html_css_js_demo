@@ -11,7 +11,8 @@
 </head>
 <body>
 <a onclick="openwindow()">window.open</a><br/>
-<a onclick="openwindow2()">window.open带定制参数</a>
+<a onclick="openwindow2()">window.open带定制参数</a><br/>
+<a onclick="modalDialog()">showModalDialog（已废弃，新版chrome无法打开）</a><br/>
 
 <script>
     function openwindow() {
@@ -19,6 +20,9 @@
     }
     function openwindow2() {
         window.open('https://www.baidu.com', 'newwidow', 'height=600, width=800, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=yes, location=no, status=no')
+    }
+    function modalDialog() {
+        showModalDialog('http://www.jb51.net', '脚本之家', 'dialogWidth:400px;dialogHeight:300px;dialogLeft:200px;dialogTop:150px;center:yes;help:yes;resizable:yes;status:yes')
     }
 </script>
 
