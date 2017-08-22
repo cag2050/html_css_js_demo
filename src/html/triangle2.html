@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #cssTest {
+            float: left;
+            position: relative;
+            width: 320px;
+            height: 92px;
+            border-radius: 3px;
+            background-color: #ffffff;
+            border: solid 1px #e1e1e1;
+        }
+
+        #cssTest:before {
+            content: "";
+            border: 6px solid #e1e1e1;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-left-color: transparent;
+            position: absolute;
+            left: 301px;
+            top: -12px;
+        }
+
+        #cssTest:after {
+            content: "";
+            border: 5px solid #fff;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-left-color: transparent;
+            position: absolute;
+            left: 302px;
+            top: -10px;
+        }
+    </style>
+</head>
+<body>
+<div id="cssTest"></div>
+</body>
+</html>
